@@ -1,0 +1,12 @@
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\bin\Debug\Railway Management System Project.exe.config
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\bin\Debug\Railway Management System Project.exe
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\bin\Debug\Railway Management System Project.pdb
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway Management System Project.csproj.AssemblyReference.cache
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway_Management_System_Project.Form1.resources
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway_Management_System_Project.Properties.Resources.resources
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway Management System Project.csproj.GenerateResource.cache
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway Management System Project.csproj.CoreCompileInputs.cache
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway Management System Project.exe
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway Management System Project.pdb
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway_Management_System_Project.DeleteForm.resources
+D:\University\Year 2\2nd Term\Database CS215\project\Railway Management System Project\obj\Debug\Railway_Management_System_Project.UpdateForm.resources
