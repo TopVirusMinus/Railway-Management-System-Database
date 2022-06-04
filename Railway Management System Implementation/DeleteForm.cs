@@ -32,18 +32,15 @@ namespace Railway_Management_System_Project
             con.Open();
 
             SqlCommand com = new SqlCommand(); ;
-            com.CommandText = "SELECT COLUMN_NAME,DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Employee' ORDER BY ORDINAL_POSITION";
+            com.CommandText = "SELECT COLUMN_NAME,DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='"+ table + "' ORDER BY ORDINAL_POSITION";
             com.Connection = con;
-            com.CommandType = CommandType.Text; 
+            com.CommandType = CommandType.Text;
 
             SqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())
             {
-                if ((string)reader[0] != "id")
-                {
-                    comboBox1.Items.Add(reader[0] + "-" + reader[1]);
-                }
+                comboBox1.Items.Add(reader[0] + "-" + reader[1]);
             }
         }
 
@@ -58,7 +55,7 @@ namespace Railway_Management_System_Project
             String l1 = comboBox1.SelectedItem.ToString();
             String[] l1Arr = l1.Split('-');
 
-            if (l1Arr[1] == "int")
+            if (l1Arr[1] == "int" || l1Arr[1] == "float" || l1Arr[1] == "double")
             {
                 com.CommandText = "DELETE FROM " + table + " WHERE " + l1Arr[0] + " = " + textBox1.Text;
                 this.Text = "DELETE FROM " + table + " WHERE " + l1Arr[0] + " = " + textBox1.Text;

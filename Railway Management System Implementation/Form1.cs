@@ -209,6 +209,12 @@ namespace Railway_Management_System_Project
                 uf.table = tableName;
                 uf.Show();
             }
+            else if(query == "Insert")
+            {
+                InsertForm iF = new InsertForm();
+                iF.table = tableName;
+                iF.Show();
+            }
         }
 
     }

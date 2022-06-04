@@ -28,7 +28,7 @@ namespace Railway_Management_System_Project
             con.Open();
 
             SqlCommand com = new SqlCommand(); ;
-            com.CommandText = "SELECT COLUMN_NAME,DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Employee' ORDER BY ORDINAL_POSITION";
+            com.CommandText = "SELECT COLUMN_NAME,DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='" + table + "' ORDER BY ORDINAL_POSITION";
             com.Connection = con;
             com.CommandType = CommandType.Text;
 
@@ -67,22 +67,30 @@ namespace Railway_Management_System_Project
             String l2 = comboBox2.SelectedItem.ToString();
             String []l2Arr = l2.Split('-');
 
-            if (l1Arr[1] == "int" && l2Arr[1] == "int")
+            if ((l1Arr[1] == "int" || l1Arr[1] == "float" || l1Arr[1] == "double") && (l2Arr[1] == "int" || l2Arr[1] == "float" || l2Arr[1] == "double"))
             {
                 com.CommandText = "UPDATE " + table + " SET " + l1Arr[0] + " = " + textBox2.Text + " WHERE " + l2Arr[0] + " = " + textBox1.Text;
                 this.Text = "UPDATE " + table + " SET " + l1Arr[0] + " = " + textBox2.Text + " WHERE " + l2Arr[0] + " = " + textBox1.Text;
             }
-            else
+            else if((l1Arr[1] != "int" && l1Arr[1] != "float" && l1Arr[1] != "double") && (l2Arr[1] != "int" && l2Arr[1] != "float" && l2Arr[1] != "double"))
+            {
+                com.CommandText = "UPDATE " + table + " SET " + l1Arr[0] + " = " + "'" + textBox2.Text + "'" + " WHERE " + l2Arr[0] + " = " + "'" + textBox1.Text + "'";
+                this.Text = "UPDATE " + table + " SET " + l1Arr[0] + " = " + "'" + textBox2.Text + "'" + " WHERE "+     l2Arr[0] + " = " + "'" + textBox1.Text + "'";
+            }
+            else if((l1Arr[1] != "int" && l1Arr[1] != "float" && l1Arr[1] != "double") && (l2Arr[1] == "int" || l2Arr[1] == "float" || l2Arr[1] == "double"))
             {
                 com.CommandText = "UPDATE " + table + " SET " + l1Arr[0] + " = " + "'" + textBox2.Text + "'" + " WHERE " + l2Arr[0] + " = " + textBox1.Text;
                 this.Text = "UPDATE " + table + " SET " + l1Arr[0] + " = " + "'" + textBox2.Text + "'" + " WHERE "+ l2Arr[0] + " = " + textBox1.Text;
             }
+            else if((l1Arr[1] == "int" || l1Arr[1] == "float" || l1Arr[1] == "double") && (l2Arr[1] != "int" && l2Arr[1] != "float" && l2Arr[1] != "double"))
+            {
+                 com.CommandText = "UPDATE " + table + " SET " + l1Arr[0] + " = " + textBox2.Text + " WHERE " + l2Arr[0] + " = " + "'" + textBox1.Text + "'";
+                this.Text = "UPDATE " + table + " SET " + l1Arr[0] + " = " + textBox2.Text + " WHERE " + l2Arr[0] + " = " + "'" + textBox1.Text + "'";
+            }
             com.Connection = con;
             com.CommandType = CommandType.Text;
 
-            //this.Text = listBox1.SelectedItem+"";
-
-            /*int affectedRows = com.ExecuteNonQuery();
+            int affectedRows = com.ExecuteNonQuery();
             if (affectedRows > 0)
             {
                 MessageBox.Show("Success");
@@ -90,7 +98,7 @@ namespace Railway_Management_System_Project
             else
             {
                 MessageBox.Show("Fail");
-            }*/
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
